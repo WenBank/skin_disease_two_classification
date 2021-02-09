@@ -8,7 +8,7 @@ import argparse
 
 parser = argparse.ArgumentParser()
 
-parser.add_argument('--mode',type=str,required=True)
+parser.add_argument('--mode',type=str,default='train',required=False)
 
 # datasets 
 parser.add_argument('-dataset_path',type=str,default='./../used_dataset',help='the path to save imgs')
@@ -41,15 +41,16 @@ parser.add_argument("--checkpoint",type=str,default='./checkpoints')
 parser.add_argument("--resume",default='',type=str,metavar='PATH',help='path to save the latest checkpoint')
 parser.add_argument("--batch_size",type=int,default=16)
 parser.add_argument("--start_epoch",default=0,type=int,metavar='N')
-parser.add_argument('--epochs',default=30,type=int,metavar='N')
+parser.add_argument('--epochs',default=1000,type=int,metavar='N')
 
 
-parser.add_argument('--image-size',type=int,default=288)
+parser.add_argument('--image-size',type=int,default=224)
 parser.add_argument('--arch',default='resnet50',choices=['resnet34','resnet18','resnet50'])
 parser.add_argument('--num_classes',default=2,type=int)
 
 # model path
-parser.add_argument('--model_path',default='./checkpoints/model_16_7165_10000.pth',type=str)
+# parser.add_argument('--model_path',default='./checkpoints/model_16_7165_10000.pth',type=str)
+parser.add_argument('--model_path',default='./checkpoints/model_cur.pth',type=str)
 parser.add_argument('--result_csv',default='./result.csv')
 
 args = parser.parse_args()
